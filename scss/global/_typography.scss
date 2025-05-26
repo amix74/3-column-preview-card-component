@@ -1,0 +1,23 @@
+:root {
+  --font-family: "Lexend Deca", sans-serif;
+  --second-family: "Big Shoulders Display", sans-serif;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Big Shoulders Display';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/big-shoulders-display-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/lexend-deca-regular.woff2') format('woff2');
+
+}
+
+
