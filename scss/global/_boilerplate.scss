@@ -77,10 +77,11 @@ body {
 
 .cards {
   display: grid;
-
+  border-radius: 0.5rem;
+  overflow: hidden;
 
   @include util.mq("medium") {
-    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -96,6 +97,7 @@ body {
   @include card-colors(var(--bg-dark-teal));
 }
 
+/*
 .bdr-top {
   border-radius: 0.5rem 0.5rem 0 0;
 
@@ -112,3 +114,4 @@ body {
   }
 }
 
+*/

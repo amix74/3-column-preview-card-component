@@ -3,7 +3,7 @@
 .card {
   display: grid;
   justify-items: start;
-  grid-row: span 4;
+  align-content: space-between;
 
   max-width: 20.4375rem;
   padding: 3rem 3.0625rem;
@@ -11,8 +11,8 @@
 
   @include util.mq('medium') {
     max-width: 19.1875rem;
+    min-height: 500px;
   }
-
 
   &__title {
     margin-top: 2.25rem;
@@ -41,8 +41,6 @@
     outline: transparent;
     white-space: nowrap;
 
-    @include util.mq('medium') {
-      margin-top: 5.1875rem;
-    }
+
   }
 }
