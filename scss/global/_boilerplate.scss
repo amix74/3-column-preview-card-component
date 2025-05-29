@@ -1,4 +1,5 @@
 @use "../util";
+@use "colors" as *;
 
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
@@ -63,6 +64,10 @@ body {
   min-height: 100vh;
   padding: 1.5rem;
 
+  @include util.mq("medium") {
+    padding: 10.6875rem 1.5rem;
+  }
+
   font-family: var(--font-family);
   font-size: 0.9375rem;
   font-weight: 400;
@@ -71,69 +76,39 @@ body {
 }
 
 .cards {
-  display: flex;
-  flex-direction: column;
+  display: grid;
 
-  @include util.mq( "medium") {
-    flex-direction: row;
+
+  @include util.mq("medium") {
+    grid-auto-flow: column;
   }
 }
 
 .bg-orange {
-  background-color: var(--bg-orange);
-
-  .card__button {
-    color: var(--bg-orange);
-  }
-
-  .card__button:hover {
-    background-color: var(--bg-orange);
-    color: var(--text-white);
-    border-color: var(--text-white);
-  }
+  @include card-colors(var(--bg-orange));
 }
 
 .bg-teal {
-  background-color: var(--bg-teal);
-
-  .card__button {
-    color: var(--bg-teal);
-  }
-
-  .card__button:hover {
-    background-color: var(--bg-teal);
-    color: var(--text-white);
-    border-color: var(--text-white);
-  }
+  @include card-colors(var(--bg-teal));
 }
 
 .bg-dark-teal {
-  background-color: var(--bg-dark-teal);
-
-  .card__button {
-    color: var(--bg-dark-teal);
-  }
-
-  .card__button:hover {
-    background-color: var(--bg-dark-teal);
-    color: var(--text-white);
-    border-color: var(--text-white);
-  }
+  @include card-colors(var(--bg-dark-teal));
 }
 
 .bdr-top {
   border-radius: 0.5rem 0.5rem 0 0;
 
-  @include util.mq( "medium") {
-    border-radius:  0.5rem  0 0 0.5rem;
+  @include util.mq("medium") {
+    border-radius: 0.5rem 0 0 0.5rem;
   }
 }
 
 .bdr-bottom {
   border-radius: 0 0 0.5rem 0.5rem;
 
-  @include util.mq( "medium") {
-    border-radius:  0 0.5rem 0.5rem 0 ;
+  @include util.mq("medium") {
+    border-radius: 0 0.5rem 0.5rem 0;
   }
 }
 

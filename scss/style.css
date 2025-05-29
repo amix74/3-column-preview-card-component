@@ -8,6 +8,25 @@
   --text-white-semi-transparent: hsla(0, 0%, 100%, 0.75);
 }
 
+:root {
+  --font-family: "Lexend Deca", sans-serif;
+  --second-family: "Big Shoulders Display", sans-serif;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Big Shoulders Display";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/big-shoulders-display-bold.ttf") format("truetype");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/lexend-deca-regular.woff2") format("woff2");
+}
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -74,14 +93,18 @@ body {
   line-height: 1.15;
   color: var(--text-white-semi-transparent);
 }
+@media (min-width: 48rem) {
+  body {
+    padding: 10.6875rem 1.5rem;
+  }
+}
 
 .cards {
-  display: flex;
-  flex-direction: column;
+  display: grid;
 }
-@media (min-width: 60rem) {
+@media (min-width: 48rem) {
   .cards {
-    flex-direction: row;
+    grid-auto-flow: column;
   }
 }
 
@@ -91,7 +114,7 @@ body {
 .bg-orange .card__button {
   color: var(--bg-orange);
 }
-.bg-orange .card__button:hover {
+.bg-orange .card__button:hover, .bg-orange .card__button:focus-visible {
   background-color: var(--bg-orange);
   color: var(--text-white);
   border-color: var(--text-white);
@@ -103,7 +126,7 @@ body {
 .bg-teal .card__button {
   color: var(--bg-teal);
 }
-.bg-teal .card__button:hover {
+.bg-teal .card__button:hover, .bg-teal .card__button:focus-visible {
   background-color: var(--bg-teal);
   color: var(--text-white);
   border-color: var(--text-white);
@@ -115,7 +138,7 @@ body {
 .bg-dark-teal .card__button {
   color: var(--bg-dark-teal);
 }
-.bg-dark-teal .card__button:hover {
+.bg-dark-teal .card__button:hover, .bg-dark-teal .card__button:focus-visible {
   background-color: var(--bg-dark-teal);
   color: var(--text-white);
   border-color: var(--text-white);
@@ -124,7 +147,7 @@ body {
 .bdr-top {
   border-radius: 0.5rem 0.5rem 0 0;
 }
-@media (min-width: 60rem) {
+@media (min-width: 48rem) {
   .bdr-top {
     border-radius: 0.5rem 0 0 0.5rem;
   }
@@ -133,37 +156,21 @@ body {
 .bdr-bottom {
   border-radius: 0 0 0.5rem 0.5rem;
 }
-@media (min-width: 60rem) {
+@media (min-width: 48rem) {
   .bdr-bottom {
     border-radius: 0 0.5rem 0.5rem 0;
   }
 }
 
-:root {
-  --font-family: "Lexend Deca", sans-serif;
-  --second-family: "Big Shoulders Display", sans-serif;
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Big Shoulders Display";
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/big-shoulders-display-bold.ttf") format("truetype");
-}
-@font-face {
-  font-display: swap;
-  font-family: "Lexend Deca";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/lexend-deca-regular.woff2") format("woff2");
-}
 .card {
+  display: grid;
+  justify-items: start;
+  grid-row: span 4;
   max-width: 20.4375rem;
   padding: 3rem 3.0625rem;
   min-height: 27.625rem;
 }
-@media (min-width: 60rem) {
+@media (min-width: 48rem) {
   .card {
     max-width: 19.1875rem;
   }
@@ -187,8 +194,12 @@ body {
   background-color: var(--bg-button);
   padding: 0.85rem 1.8125rem;
   border: 2px solid var(--bg-button);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  outline: transparent;
+  white-space: nowrap;
 }
-@media (min-width: 60rem) {
+@media (min-width: 48rem) {
   .card__button {
     margin-top: 5.1875rem;
   }

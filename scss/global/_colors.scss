@@ -7,3 +7,17 @@
   --text-white: hsl(0, 0%, 100%);
   --text-white-semi-transparent: hsla(0, 0%, 100%, 0.75);
 }
+
+@mixin card-colors($color) {
+  background-color: #{$color};
+
+  .card__button {
+    color: #{$color};
+  }
+
+  .card__button:hover, .card__button:focus-visible {
+    background-color: #{$color};
+    color: var(--text-white);
+    border-color: var(--text-white);
+  }
+}
